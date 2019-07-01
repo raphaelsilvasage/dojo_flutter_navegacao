@@ -1,3 +1,4 @@
+import 'package:dojo_flutter_navegacao/helper/navegacaoHelper.dart';
 import 'package:dojo_flutter_navegacao/view/navegacao01View.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +26,19 @@ class _PrincipalViewState extends State<PrincipalView> {
                 Navigator.of(context).push(rota);
               },
             ),
+            RaisedButton(
+              child: Text("Ir para view 01 (ROUTE)"),
+              onPressed: () {
+                Navigator.of(context).pushNamed(NavegacaoHelper.rotaNavegacao01);
+              },
+            ),
             SizedBox(height: 30),
+            RaisedButton(
+              child: Text("Ir para rota inexistente"),
+              onPressed: () {
+                Navigator.pushNamed(context, "XYZ_ROTA_NAO_EXISTE_123");
+              },
+            ),
           ],
         ),
       ),

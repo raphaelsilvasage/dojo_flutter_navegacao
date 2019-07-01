@@ -28,7 +28,9 @@ class _Navegacao02ViewState extends State<Navegacao02View> {
             SizedBox(height: 30),
             RaisedButton(
               child: Text("Voltar via comando"),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
             ),
           ],
         ),

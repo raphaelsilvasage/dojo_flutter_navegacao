@@ -1,3 +1,4 @@
+import 'package:dojo_flutter_navegacao/helper/navegacaoHelper.dart';
 import 'package:dojo_flutter_navegacao/view/navegacao02View.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,7 @@ class _Navegacao01ViewState extends State<Navegacao01View> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             RaisedButton(
-              child: Text("Navegar para view 02 SEM passar parâmetro"),
+              child: Text("Navegar para view 02 passando parâmetro"),
               onPressed: () {
                 Route rota = MaterialPageRoute(
                     builder: (context) => Navegacao02View(
@@ -30,6 +31,25 @@ class _Navegacao01ViewState extends State<Navegacao01View> {
                 Navigator.of(context).push(rota);
               },
             ),
+            SizedBox(height: 30),
+            RaisedButton(
+              child: Text("Navegar para view 02 SEM parâmetro (ROUTE)"),
+              onPressed: () {
+                Navigator.of(context).pushNamed(NavegacaoHelper.rotaNavegacao02, arguments: null);
+              },
+            ),
+            SizedBox(height: 30),
+            RaisedButton(
+              child: Text("Navegar para view 02 COM parâmetro (ROUTE)"),
+              onPressed: () {
+                Navigator.of(context).pushNamed(
+                  NavegacaoHelper.rotaNavegacao02,
+                  arguments: {"nome": "Raphael", "idade": int.parse("30")},
+                );
+              },
+            ),
+            SizedBox(height: 30),
+            RaisedButton(child: Text("Voltar via comando"), onPressed: () => Navigator.pop(context), color: Colors.blue),
           ],
         ),
       ),
