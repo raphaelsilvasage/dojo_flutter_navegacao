@@ -8,9 +8,13 @@ class Navegacao01View extends StatefulWidget {
 }
 
 class _Navegacao01ViewState extends State<Navegacao01View> {
+  final _controladorNome = TextEditingController();
+  final _controladorIdade = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text("Navegação 01"),
         centerTitle: true,
@@ -19,6 +23,14 @@ class _Navegacao01ViewState extends State<Navegacao01View> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            TextField(
+              controller: _controladorNome,
+              decoration: InputDecoration(labelText: "Nome"),
+            ),
+            TextField(
+              controller: _controladorIdade,
+              decoration: InputDecoration(labelText: "Idade"),
+            ),
             RaisedButton(
               child: Text("Navegar para view 02 passando parâmetro"),
               onPressed: () {
@@ -44,7 +56,7 @@ class _Navegacao01ViewState extends State<Navegacao01View> {
               onPressed: () {
                 Navigator.of(context).pushNamed(
                   NavegacaoHelper.rotaNavegacao02,
-                  arguments: {"nome": "Raphael", "idade": int.parse("30")},
+                  arguments: {"nome": _controladorNome.text, "idade": int.parse(_controladorIdade.text)},
                 );
               },
             ),

@@ -18,11 +18,11 @@ class NavegacaoHelper {
           viewEncontrada = PrincipalView();
           break;
 
-        case "/navegacao01":
+        case rotaNavegacao01:
           viewEncontrada = Navegacao01View();
           break;
 
-        case "/navegacao02":
+        case rotaNavegacao02:
           //Faço aqui a extração dos parâmetros
           String nome = parametros != null ? parametros["nome"] : null;
           int idade = parametros != null ? parametros["idade"] : null;
